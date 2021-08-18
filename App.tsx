@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, ScrollView} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Header, Divider} from "react-native-elements";
 import SettingOption from "./src/components/SettingOption";
@@ -14,12 +14,14 @@ import {
 } from 'react-native-iconly';
 
 import AppLoading from 'expo-app-loading';
-import {useFonts, Inter_300Light} from '@expo-google-fonts/inter';
+import {useFonts, Inter_300Light, Inter_700Bold, Inter_500Medium} from '@expo-google-fonts/inter';
 
 export default function App() {
 
     let [fontsLoaded] = useFonts({
         Inter_300Light,
+        Inter_700Bold,
+        Inter_500Medium
     });
 
 
@@ -42,7 +44,7 @@ export default function App() {
                         <ChevronLeft color="#000"/>
                     </View>
                 </Header>
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                     <View style={styles.settingContainer}>
                         <Text style={styles.subtitle}>Purchase History</Text>
                         <SettingOption title={'My Orders'} children={<Image style={styles.customIcon}
@@ -79,7 +81,7 @@ export default function App() {
                     <View style={styles.settingContainer}>
                         <SettingOption title={'Sign Out'} children={<Logout/>}/>
                     </View>
-                </View>
+                </ScrollView>
             </SafeAreaProvider>
         )
     }
@@ -92,8 +94,8 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontWeight: "700",
-        marginBottom: '2%',
-        fontFamily: 'Inter_300Light',
+        marginBottom: '6%',
+        fontFamily: 'Inter_700Bold',
         fontSize: 15
     },
     settingContainer: {

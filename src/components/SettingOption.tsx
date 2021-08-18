@@ -1,17 +1,18 @@
 import React from "react";
 import {StyleSheet, Text, View} from 'react-native';
-import {Icon} from "react-native-elements";
+import {IconlyProvider} from "react-native-iconly"
 
 interface ISettingOptionProps {
     title: string;
-    iconName: string
 }
 
-const SettingOption: React.FC<ISettingOptionProps> = ({title, iconName}) => {
+const SettingOption: React.FC<ISettingOptionProps> = ({title, children}) => {
     return (
         <View style={{justifyContent: "space-between", marginBottom: '4%'}}>
             <View style={styles.optionComponent}>
-                <Icon name={iconName} iconStyle={{}}/>
+                <IconlyProvider primaryColor={'#000'}>
+                    {children}
+                </IconlyProvider>
                 <Text style={{marginLeft: '3%', fontSize: 15}}>{title}</Text>
             </View>
         </View>
